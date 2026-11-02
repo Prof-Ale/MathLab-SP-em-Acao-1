@@ -159,19 +159,42 @@ body {
 }
 
 .logo-emblem {
-  width: 56px;
-  height: 56px;
-  background: var(--orange-vibrant);
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.45);
+  border: 2px solid var(--orange-vibrant);
+  flex-shrink: 0;
+  background: #0A192F;
+}
+
+.logo-emblem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logo-oficial-badge {
+  background: #FFFFFF;
+  padding: 0.25rem 0.65rem;
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 900;
-  font-size: 1.5rem;
-  color: #FFFFFF;
-  box-shadow: 0 4px 10px rgba(255, 107, 0, 0.4);
-  border: 2px solid #FFFFFF;
+  box-shadow: var(--shadow-sm);
+  border: 2px solid var(--orange-vibrant);
+  height: 64px;
   flex-shrink: 0;
+}
+
+.logo-oficial-badge img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
 }
 
 .brand-text h1 {
@@ -567,8 +590,8 @@ body.high-contrast .prof-ale-box {
 }
 
 .prof-ale-avatar {
-  width: 74px;
-  height: 74px;
+  width: 88px;
+  height: 88px;
   border-radius: 50%;
   background: var(--navy-primary);
   border: 3px solid var(--orange-vibrant);
@@ -577,7 +600,7 @@ body.high-contrast .prof-ale-box {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
 }
 
 .prof-ale-content {

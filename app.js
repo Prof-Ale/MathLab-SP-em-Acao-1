@@ -72,11 +72,11 @@
     window.speechSynthesis.speak(utter);
   };
 
-  function profAleAvatarHTML() {
-    const svgFallback = `data:image/svg+xml;utf8,` + encodeURIComponent(
-      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><circle cx="40" cy="40" r="38" fill="#1E3A8A"/><circle cx="40" cy="30" r="14" fill="#8D5524"/><path d="M18 68 C18 48 62 48 62 68" fill="#FF6B00"/><rect x="26" y="25" width="11" height="8" rx="2" fill="none" stroke="#FFFFFF" stroke-width="2"/><rect x="43" y="25" width="11" height="8" rx="2" fill="none" stroke="#FFFFFF" stroke-width="2"/><line x1="37" y1="29" x2="43" y2="29" stroke="#FFFFFF" stroke-width="2"/></svg>`
-    );
-    return `<div class="prof-ale-avatar"><img src="Avatares/Al%C3%AA%20Profissional.png" alt="Prof. Alê Chocolate" style="width:100%;height:100%;object-fit:cover" onerror="this.onerror=null;this.src='${svgFallback}'"></div>`;
+  function profAleAvatarHTML(variant) {
+    const imgSrc = variant === "clean"
+      ? "assets/avatar-prof-ale-clean.jpg"
+      : "assets/avatar-prof-ale-sp.jpg";
+    return `<div class="prof-ale-avatar"><img src="${imgSrc}" alt="Prof. Alê Chocolate — MathLab SP em Ação" style="width:100%;height:100%;object-fit:cover" onerror="this.onerror=null;this.src='assets/logo-circular.jpg'"></div>`;
   }
 
   function updateHUD() {
@@ -356,7 +356,7 @@
         </div>
 
         <div class="fique-ligado-card">
-          ${profAleAvatarHTML()}
+          ${profAleAvatarHTML("clean")}
           <div style="flex:1">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem;flex-wrap:wrap;gap:0.5rem">
               <strong style="color:var(--orange-vibrant);font-size:1.05rem">💡 Fique ligado! (Sistematização Conceitual)</strong>
@@ -452,11 +452,14 @@
         const type = btn.dataset.support;
         const supEl = document.getElementById(`e2-sup-${qIdx}`);
         const q = m.etapa2[qIdx];
-        supEl.style.display = "block";
+        supEl.style.display = "flex";
+        supEl.style.alignItems = "center";
+        supEl.style.gap = "0.75rem";
+        const av = `<img src="assets/avatar-prof-ale-clean.jpg" alt="Prof. Alê Chocolate" style="width:48px;height:48px;border-radius:50%;border:2px solid var(--orange-vibrant);object-fit:cover;flex-shrink:0">`;
         supEl.innerHTML =
           type === "dica"
-            ? `🍫 <strong>Dica do Prof. Alê Chocolate:</strong> ${q.dica}`
-            : `📌 <strong>Fique ligado:</strong> ${q.fiqueLigado}`;
+            ? `${av}<div>🍫 <strong>Dica do Prof. Alê Chocolate:</strong> ${q.dica}</div>`
+            : `${av}<div>📌 <strong>Fique ligado:</strong> ${q.fiqueLigado}</div>`;
       };
     });
 

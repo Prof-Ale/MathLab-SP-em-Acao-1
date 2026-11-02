@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Plataforma MathLab — São Paulo em Ação: Matemática 1 (16 Missões) | Prof. Alê Chocolate</title>
-  <link rel="icon" href="icons/icon-192.png">
+  <link rel="icon" href="assets/logo-circular.jpg">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,11 +12,12 @@
   <!-- Barra de Acessibilidade Global e DUA (Desenho Universal para a Aprendizagem) -->
   <nav class="a11y-bar" aria-label="Barra de Acessibilidade e DUA">
     <div class="a11y-brand">
+      <img src="assets/logo-circular.jpg" alt="Selo MathLab" style="width:26px;height:26px;border-radius:50%;object-fit:cover;border:1px solid var(--orange-vibrant)">
       <span class="selo-badge">Selo MathLab</span>
       <span>Acessibilidade DUA • Recomposição de Aprendizagens (Saeb 5º Ano &amp; BNCC)</span>
     </div>
     <div class="a11y-controls">
-      <a href="index.html" class="a11y-btn" title="Voltar ao Laboratório Principal MathLab">🏠 Início MathLab</a>
+      <a href="https://prof-ale.github.io/MathLab/" class="a11y-btn" title="Voltar ao Laboratório Principal MathLab">🏠 Portal MathLab</a>
       <button type="button" class="a11y-btn" id="a11y-speak" title="Ler abertura em voz alta (Web Speech API pt-BR)">🔊 Ler Missão</button>
       <button type="button" class="a11y-btn" id="a11y-font-down" title="Diminuir tamanho da fonte">A−</button>
       <button type="button" class="a11y-btn" id="a11y-font-up" title="Aumentar tamanho da fonte">A+</button>
@@ -31,7 +32,15 @@
   <header class="main-header">
     <div class="header-inner">
       <div class="brand-title-group">
-        <div class="logo-emblem" aria-hidden="true">ML</div>
+        <div class="logo-oficial-badge">
+          <img src="assets/logo-oficial.png" alt="Logotipo Oficial MathLab — Matemática em Investigação">
+        </div>
+        <div class="logo-emblem">
+          <img src="assets/logo-circular.jpg" alt="Emblema Circular MathLab Educação">
+        </div>
+        <div class=" logo-emblem">
+          <img src="assets/avatar-prof-ale-sp.jpg" alt="Prof. Alê Chocolate — MathLab SP em Ação">
+        </div>
         <div class="brand-text">
           <h1>São Paulo em Ação: Matemática 1 — 16 Missões</h1>
           <p>Mentor Guia: <strong>Prof. Alê Chocolate</strong> • Anos Finais (6º Ano) • 32 Semanas / 4 Bimestres</p>
@@ -107,9 +116,22 @@
   </div>
 
   <!-- Rodapé Institucional Prof. Alê Chocolate -->
-  <footer style="background:var(--navy-dark);color:#CBD5E1;padding:1.25rem;text-align:center;font-size:0.85rem;border-top:3px solid var(--orange-vibrant);margin-top:2rem">
-    <p><strong>Plataforma MathLab — São Paulo em Ação: Matemática 1 (16 Missões)</strong> • Idealização e Mediação: <strong>Prof. Alessandro Barbosa dos Santos (Prof. Alê Chocolate)</strong></p>
-    <p style="margin-top:0.25rem;font-size:0.78rem">Ensinar • Investigar • Incluir • Transformar | Alinhado à Matriz de Referência do Saeb (5º Ano) e à BNCC.</p>
+  <footer style="background:var(--navy-dark);color:#CBD5E1;padding:1.35rem;font-size:0.85rem;border-top:3px solid var(--orange-vibrant);margin-top:2rem">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem">
+      <div style="display:flex;align-items:center;gap:0.85rem">
+        <img src="assets/avatar-prof-ale-sp.jpg" alt="Prof. Alê Chocolate — MathLab SP em Ação" style="width:64px;height:64px;border-radius:50%;border:2px solid var(--orange-vibrant);object-fit:cover">
+        <img src="assets/logo-circular.jpg" alt="MathLab Educação" style="width:64px;height:64px;border-radius:50%;border:2px solid var(--orange-vibrant);object-fit:cover">
+        <div style="text-align:left">
+          <strong style="color:#FFFFFF;font-size:0.95rem">Prof. Alessandro Barbosa dos Santos (Prof. Alê Chocolate)</strong>
+          <p style="color:#FDBA74;font-weight:700;font-size:0.8rem">Ensinar • Investigar • Incluir • Transformar</p>
+          <p style="font-size:0.76rem;color:#94A3B8">🐶 Mascotes: Oreo &amp; Julieta • ☕ "Café, Matemática, Planos, Projetos, Vida."</p>
+        </div>
+      </div>
+      <div style="text-align:right">
+        <p><strong>Plataforma MathLab — São Paulo em Ação: Matemática 1 (16 Missões)</strong></p>
+        <p style="margin-top:0.2rem;font-size:0.78rem">Alinhado à Matriz de Referência do Saeb (5º Ano) e à BNCC • © 2026 Todos os direitos reservados.</p>
+      </div>
+    </div>
   </footer>
 
   <script src="missions-data.js"></script>
