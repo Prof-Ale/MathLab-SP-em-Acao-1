@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plataforma MathLab — São Paulo em Ação: Matemática 1 (16 Missões) | Prof. Alê Chocolate</title>
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Barra de Acessibilidade Global e DUA (Desenho Universal para a Aprendizagem) -->
+  <nav class="a11y-bar" aria-label="Barra de Acessibilidade e DUA">
+    <div class="a11y-brand">
+      <span class="selo-badge">Selo MathLab</span>
+      <span>Acessibilidade DUA • Recomposição de Aprendizagens (Saeb 5º Ano &amp; BNCC)</span>
+    </div>
+    <div class="a11y-controls">
+      <a href="index.html" class="a11y-btn" title="Voltar ao Laboratório Principal MathLab">🏠 Início MathLab</a>
+      <button type="button" class="a11y-btn" id="a11y-speak" title="Ler abertura em voz alta (Web Speech API pt-BR)">🔊 Ler Missão</button>
+      <button type="button" class="a11y-btn" id="a11y-font-down" title="Diminuir tamanho da fonte">A−</button>
+      <button type="button" class="a11y-btn" id="a11y-font-up" title="Aumentar tamanho da fonte">A+</button>
+      <button type="button" class="a11y-btn" id="a11y-contrast" title="Alternar modo de Alto Contraste">◐ Alto Contraste</button>
+      <button type="button" class="a11y-btn" id="a11y-colorblind" title="Modo Acessível para Daltonismo (Hachuras e Rótulos Diretos no Canvas)">👁️ Modo Daltonismo</button>
+      <button type="button" class="a11y-btn active" id="a11y-teacher" title="Exibir/Ocultar Etiquetas Saeb, Nível de Proficiência (N1-N8) e Bloom">👩‍🏫 Tags Saeb/Prof.</button>
+      <button type="button" class="a11y-btn" onclick="window.openTeacherSaebModal()" title="Abrir Painel De Olho no Saeb">📊 De Olho no Saeb</button>
+    </div>
+  </nav>
+
+  <!-- Cabeçalho Principal Identidade Visual MathLab -->
+  <header class="main-header">
+    <div class="header-inner">
+      <div class="brand-title-group">
+        <div class="logo-emblem" aria-hidden="true">ML</div>
+        <div class="brand-text">
+          <h1>São Paulo em Ação: Matemática 1 — 16 Missões</h1>
+          <p>Mentor Guia: <strong>Prof. Alê Chocolate</strong> • Anos Finais (6º Ano) • 32 Semanas / 4 Bimestres</p>
+        </div>
+      </div>
+
+      <div class="gamification-hud" aria-live="polite">
+        <div class="hud-stat">
+          <span class="hud-label">Pontuação Cooperativa</span>
+          <span class="hud-value" id="hud-xp">0 XP</span>
+        </div>
+        <div class="hud-stat">
+          <span class="hud-label">Missões Concluídas</span>
+          <span class="hud-value" id="hud-missions">0 / 16</span>
+          <div class="progress-bar-outer" role="progressbar" aria-label="Progresso nas 16 missões">
+            <div class="progress-bar-fill" id="hud-progress-bar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Layout Principal: Seletor das 16 Missões por Bimestre + Área Gamificada de 5 Abas -->
+  <main class="app-layout">
+    <aside class="missions-sidebar" aria-label="Navegação das 16 Missões por Bimestre">
+      <div class="sidebar-header">
+        <h2>🗺️ Trilha das 16 Missões</h2>
+        <div class="bimester-tabs" role="tablist" aria-label="Filtrar por Bimestre">
+          <button type="button" class="bim-tab active" data-bim="0">Todas</button>
+          <button type="button" class="bim-tab" data-bim="1">1º Bim</button>
+          <button type="button" class="bim-tab" data-bim="2">2º Bim</button>
+          <button type="button" class="bim-tab" data-bim="3">3º Bim</button>
+          <button type="button" class="bim-tab" data-bim="4">4º Bim</button>
+        </div>
+      </div>
+      <div class="missions-list" id="missions-list"></div>
+    </aside>
+
+    <section class="mission-workspace" aria-live="polite">
+      <div class="mission-banner" id="mission-banner"></div>
+      <nav class="mission-tabs-nav" id="mission-tabs-nav" aria-label="5 Etapas Gamificadas da Missão"></nav>
+      <div id="stage-content"></div>
+    </section>
+  </main>
+
+  <!-- Andaimes Pedagógicos (Scaffolding Retrátil: Quadro de Ordens 6ª Ordem/Decimais, Calculadora EF05MA06 e Malha) -->
+  <button type="button" class="scaffolding-fab" id="scaffolding-fab" aria-label="Abrir Andaimes Pedagógicos e Rascunho Interativo">
+    🧮 Andaimes &amp; Rascunho
+  </button>
+
+  <aside class="scaffolding-drawer" id="scaffolding-drawer" aria-label="Bloco de Andaimes Pedagógicos">
+    <div class="scaffolding-header">
+      <strong>🛠️ Andaimes Pedagógicos (DUA)</strong>
+      <button type="button" id="scaffolding-close" style="background:none;border:none;color:#fff;font-size:1.25rem;cursor:pointer" aria-label="Fechar Andaimes">&times;</button>
+    </div>
+    <div style="display:flex;gap:0.35rem;padding:0.5rem 1rem;background:var(--bg-main);border-bottom:1px solid var(--border-color)">
+      <button type="button" class="btn-secondary scaf-tab-btn" data-tab="qvl" style="flex:1;padding:0.35rem">Quadro de Ordens</button>
+      <button type="button" class="btn-secondary scaf-tab-btn" data-tab="calc" style="flex:1;padding:0.35rem">Porcentagem (EF05MA06)</button>
+      <button type="button" class="btn-secondary scaf-tab-btn" data-tab="grid" style="flex:1;padding:0.35rem">Malha Rascunho</button>
+    </div>
+    <div class="scaffolding-body" id="scaffolding-body"></div>
+  </aside>
+
+  <!-- Modal Painel do Professor (Modo De Olho no Saeb) -->
+  <div id="teacher-saeb-modal" style="display:none;position:fixed;inset:0;background:rgba(10,25,47,0.75);z-index:1100;align-items:center;justify-content:center;padding:1rem">
+    <div style="background:var(--bg-card);border:3px solid var(--orange-vibrant);border-radius:16px;max-width:860px;width:100%;max-height:85vh;overflow:auto;padding:1.5rem;box-shadow:var(--shadow-lg)">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;border-bottom:2px solid var(--border-color);padding-bottom:0.65rem">
+        <h3 style="color:var(--navy-primary)">👩‍🏫 Painel do Professor — Modo De Olho no Saeb (Recomposição 6º Ano)</h3>
+        <button type="button" class="btn-secondary" onclick="document.getElementById('teacher-saeb-modal').style.display='none'">Fechar &times;</button>
+      </div>
+      <div id="teacher-saeb-body"></div>
+    </div>
+  </div>
+
+  <!-- Rodapé Institucional Prof. Alê Chocolate -->
+  <footer style="background:var(--navy-dark);color:#CBD5E1;padding:1.25rem;text-align:center;font-size:0.85rem;border-top:3px solid var(--orange-vibrant);margin-top:2rem">
+    <p><strong>Plataforma MathLab — São Paulo em Ação: Matemática 1 (16 Missões)</strong> • Idealização e Mediação: <strong>Prof. Alessandro Barbosa dos Santos (Prof. Alê Chocolate)</strong></p>
+    <p style="margin-top:0.25rem;font-size:0.78rem">Ensinar • Investigar • Incluir • Transformar | Alinhado à Matriz de Referência do Saeb (5º Ano) e à BNCC.</p>
+  </footer>
+
+  <script src="missions-data.js"></script>
+  <script src="canvas-labs.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
