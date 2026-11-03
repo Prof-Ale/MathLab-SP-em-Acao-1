@@ -21,7 +21,7 @@ window.MISSIONS_DATA = [
     },
     etapa1: {
       alertaEstrategia: "Atenção à ordem das coordenadas! No plano quadriculado, localizamos primeiro o deslocamento horizontal (coluna/eixo X) e depois o vertical (linha/eixo Y).",
-      enunciado: "No mapa quadriculado do bairro, a Biblioteca está em (B, 2) e o Parque está em (E, 5). Use o simulador em Canvas para traçar a rota da Biblioteca até o Parque caminhando pelas linhas da malha. Quantas quadras para Leste (direita) e quantas para Norte (cima) você percorreu no total?",
+      enunciado: "No mapa quadriculado do bairro, a Biblioteca está em (B, 2) e o Parque está em (E, 5). Use o simulador para traçar a rota da Biblioteca até o Parque caminhando pelas linhas da malha. Quantas quadras para Leste (direita) e quantas para Norte (cima) você percorreu no total?",
       opcoes: [
         "A) 2 quadras para Leste e 4 para Norte (Total: 6 quadras)",
         "B) 3 quadras para Leste e 3 para Norte (Total: 6 quadras)",
@@ -101,8 +101,8 @@ window.MISSIONS_DATA = [
       }
     ],
     etapaFinal: {
-      titulo: "Missão Boss: Criador de Rota de Caça ao Tesouro",
-      instrucao: "Clique nas células da malha viária em Canvas para posicionar 3 pistas e o Baú do Tesouro! O sistema registra automaticamente os pares ordenados e a distância total em quadras.",
+      titulo: "Missão Final: Criador de Rota de Caça ao Tesouro",
+      instrucao: "Clique nas células da malha viária para posicionar 3 pistas e o Baú do Tesouro! O sistema registra automaticamente os pares ordenados e a distância total em quadras.",
       metaMinima: 4
     }
   },
@@ -205,8 +205,8 @@ window.MISSIONS_DATA = [
       }
     ],
     etapaFinal: {
-      titulo: "Missão Boss: Construtor de Cidade Poligonal e Tangram",
-      instrucao: "Teste os ângulos com a Régua L e alterne os polígonos no Canvas para projetar os quarteirões da cidade identificando lados paralelos e tipos de ângulos!",
+      titulo: "Missão Final: Construtor de Cidade Poligonal e Tangram",
+      instrucao: "Teste os ângulos com a Régua L e alterne os polígonos no simulador para projetar os quarteirões da cidade identificando lados paralelos e tipos de ângulos!",
       metaMinima: 3
     }
   },
@@ -319,8 +319,8 @@ window.MISSIONS_DATA = [
       }
     ],
     etapaFinal: {
-      titulo: "Missão Boss: Construtor Isométrico de Volume com Cubos",
-      instrucao: "Adicione ou remova camadas de cubos no Canvas 3D e alterne entre Poliedros e Planificações para atingir o volume-alvo da missão!",
+      titulo: "Missão Final: Construtor Isométrico de Volume com Cubos",
+      instrucao: "Adicione ou remova camadas de cubos no simulador 3D e alterne entre Poliedros e Planificações para atingir o volume-alvo da missão!",
       metaMinima: 8
     }
   },
@@ -344,7 +344,7 @@ window.MISSIONS_DATA = [
     },
     etapa1: {
       alertaEstrategia: "Para ampliar ou reduzir sem deformar: multiplique (ou divida) TODOS os lados pelo mesmo fator de escala k! Os ângulos internos permanecem exatamente iguais.",
-      enunciado: "No Canvas de malha dupla acima, observe o retângulo original de base 3 unidades e altura 2 unidades (Perímetro = 10 u e Área = 6 quadradinhos). Se aplicarmos o fator de ampliação 2× (dobrando as medidas dos lados para 6 × 4), quais serão o novo perímetro e a nova área?",
+      enunciado: "No simulador de malha dupla acima, observe o retângulo original de base 3 unidades e altura 2 unidades (Perímetro = 10 u e Área = 6 quadradinhos). Se aplicarmos o fator de ampliação 2× (dobrando as medidas dos lados para 6 × 4), quais serão o novo perímetro e a nova área?",
       opcoes: [
         "A) Perímetro = 20 u (dobrou) e Área = 12 u² (dobrou)",
         "B) Perímetro = 20 u (dobrou) e Área = 24 u² (quadruplicou)",
@@ -423,8 +423,8 @@ window.MISSIONS_DATA = [
       }
     ],
     etapaFinal: {
-      titulo: "Missão Boss: Desenho de Escala e Raio Triplicado",
-      instrucao: "Use os controles de escala (1×, 2×, 3×) no Canvas de malha dupla para comparar visualmente o efeito linear no perímetro e quadrático na área!",
+      titulo: "Missão Final: Desenho de Escala e Raio Triplicado",
+      instrucao: "Use os controles de escala (1×, 2×, 3×) no simulador de malha dupla para comparar visualmente o efeito linear no perímetro e quadrático na área!",
       metaMinima: 3
     }
   },
@@ -534,8 +534,8 @@ window.MISSIONS_DATA = [
       }
     ],
     etapaFinal: {
-      titulo: "Missão Boss: Cruzadinha Demográfica do IBGE no Quadro de Ordens",
-      instrucao: "Ajuste os algarismos das 6 ordens no Canvas para formar os números solicitados pelos desafios demográficos do IBGE!",
+      titulo: "Missão Final: Cruzadinha Demográfica do IBGE no Quadro de Ordens",
+      instrucao: "Ajuste os algarismos das 6 ordens no simulador para formar os números solicitados pelos desafios demográficos do IBGE!",
       metaMinima: 3
     }
   },
@@ -628,8 +628,8 @@ window.MISSIONS_DATA = [
       }
     ],
     etapaFinal: {
-      titulo: "Missão Boss: Desafio do Quadrado Mágico 4×4 (Soma 34)",
-      instrucao: "Complete as casas vazias do Quadrado Mágico 4×4 no Canvas de modo que todas as linhas, colunas e diagonais somem exatamente 34!",
+      titulo: "Missão Final: Desafio do Quadrado Mágico 4×4 (Soma 34)",
+      instrucao: "Complete as casas vazias do Quadrado Mágico 4×4 no simulador de modo que todas as linhas, colunas e diagonais somem exatamente 34!",
       metaMinima: 4
     }
   },
@@ -653,7 +653,7 @@ window.MISSIONS_DATA = [
     },
     etapa1: {
       alertaEstrategia: "Relação fundamental da divisão (Prova Real): Dividendo = Divisor × Quociente + Resto (com Resto < Divisor). Na combinatória, multiplique as opções de cada etapa!",
-      enunciado: "No construtor de Árvore de Possibilidades em Canvas, Júlia está planejando sua mala de viagem com 4 camisetas, 3 calças e 2 pares de tênis. Quantas combinações diferentes (1 camiseta + 1 calça + 1 tênis) ela pode vestir?",
+      enunciado: "No construtor de Árvore de Possibilidades, Júlia está planejando sua mala de viagem com 4 camisetas, 3 calças e 2 pares de tênis. Quantas combinações diferentes (1 camiseta + 1 calça + 1 tênis) ela pode vestir?",
       opcoes: [
         "A) 9 combinações (4 + 3 + 2)",
         "B) 14 combinações (4 × 3 + 2)",
@@ -732,8 +732,8 @@ window.MISSIONS_DATA = [
       }
     ],
     etapaFinal: {
-      titulo: "Missão Boss: Planejador de Mala de Viagem e Prova Real",
-      instrucao: "Use o simulador combinatório no Canvas para montar árvores de possibilidades e validar divisões com prova real!",
+      titulo: "Missão Final: Planejador de Mala de Viagem e Prova Real",
+      instrucao: "Use o simulador combinatório no simulador para montar árvores de possibilidades e validar divisões com prova real!",
       metaMinima: 3
     }
   },
@@ -757,7 +757,7 @@ window.MISSIONS_DATA = [
     },
     etapa1: {
       alertaEstrategia: "Base 60 (Sistema Sexagesimal): 1 hora = 60 minutos e 1 minuto = 60 segundos! Sempre que os minutos atingirem 60 ou mais, troque cada grupo de 60 minutos por +1 hora.",
-      enunciado: "No Relógio Sincronizado em Canvas, ajuste o início de uma peça de teatro às 15h45min (3h45 da tarde). Se a peça teve duração de 1 hora e 30 minutos, em qual horário ela terminou?",
+      enunciado: "No Relógio Sincronizado, ajuste o início de uma peça de teatro às 15h45min (3h45 da tarde). Se a peça teve duração de 1 hora e 30 minutos, em qual horário ela terminou?",
       opcoes: [
         "A) 16h75min",
         "B) 16h15min",
@@ -841,8 +841,8 @@ window.MISSIONS_DATA = [
       }
     ],
     etapaFinal: {
-      titulo: "Missão Boss: Calculadora Sexagesimal e Conversor de Lazer (h/min/s)",
-      instrucao: "Arraste os ponteiros do relógio analógico no Canvas e converta suas atividades de lazer para minutos e segundos!",
+      titulo: "Missão Final: Calculadora Sexagesimal e Conversor de Lazer (h/min/s)",
+      instrucao: "Arraste os ponteiros do relógio analógico no simulador e converta suas atividades de lazer para minutos e segundos!",
       metaMinima: 3
     }
   }
@@ -870,7 +870,7 @@ window.MISSIONS_DATA.push(
     },
     etapa1: {
       alertaEstrategia: "Guarde os fatores de conversão: 1 km = 1.000 m | 1 m = 100 cm = 1.000 mm | 1 cm = 10 mm | 1 kg = 1.000 g | 1 g = 1.000 mg | 1 L = 1.000 mL!",
-      enunciado: "Na Bancada de Medidas e Culinária em Canvas, para preparar uma receita de canjica para a festa da escola usamos 1,5 L de leite de vaca e 400 mL de leite de coco. Qual é o volume total de líquidos em mililitros (mL)?",
+      enunciado: "Na Bancada de Medidas e Culinária, para preparar uma receita de canjica para a festa da escola usamos 1,5 L de leite de vaca e 400 mL de leite de coco. Qual é o volume total de líquidos em mililitros (mL)?",
       opcoes: [
         "A) 550 mL",
         "B) 1.540 mL",
@@ -943,8 +943,8 @@ window.MISSIONS_DATA.push(
       }
     ],
     etapaFinal: {
-      titulo: "Missão Boss: Bancada de Medidas e Conversor de Receita de Canjica",
-      instrucao: "Teste a régua milimetrada, a balança e os recipientes no Canvas para converter todas as medidas da receita culinária!",
+      titulo: "Missão Final: Bancada de Medidas e Conversor de Receita de Canjica",
+      instrucao: "Teste a régua milimetrada, a balança e os recipientes no simulador para converter todas as medidas da receita culinária!",
       metaMinima: 3
     }
   },
@@ -968,7 +968,7 @@ window.MISSIONS_DATA.push(
     },
     etapa1: {
       alertaEstrategia: "Conte apenas os segmentos EXTERNOS que formam o contorno da figura (nunca conte as linhas internas da malha!). Depois, verifique a escala: se 1 lado de quadradinho = 3 m, multiplique o total de lados por 3!",
-      enunciado: "No Geoplano e Malha de Contorno em Canvas, desenhamos uma horta em formato de 'L' cujo contorno externo mede 16 lados de quadradinho. Se cada lado de quadradinho representa 2 metros na escala real, qual é o perímetro real da horta?",
+      enunciado: "No Geoplano e Malha de Contorno, desenhamos uma horta em formato de 'L' cujo contorno externo mede 16 lados de quadradinho. Se cada lado de quadradinho representa 2 metros na escala real, qual é o perímetro real da horta?",
       opcoes: [
         "A) 16 metros",
         "B) 24 metros",
@@ -1046,8 +1046,8 @@ window.MISSIONS_DATA.push(
       }
     ],
     etapaFinal: {
-      titulo: "Missão Boss: Geoplano Virtual e Lousa Criativa de Perímetro",
-      instrucao: "Clique nas células da malha no Canvas para criar sua obra geométrica e veja o cálculo automático do perímetro em diferentes escalas!",
+      titulo: "Missão Final: Geoplano Virtual e Lousa Criativa de Perímetro",
+      instrucao: "Clique nas células da malha no simulador para criar sua obra geométrica e veja o cálculo automático do perímetro em diferentes escalas!",
       metaMinima: 5
     }
   },
@@ -1071,7 +1071,7 @@ window.MISSIONS_DATA.push(
     },
     etapa1: {
       alertaEstrategia: "Regra de Ouro da Malha de Área: conte primeiro todos os quadradinhos INTEIROS (□ = 1 u²) e depois conte os triângulos de MEIA unidade (◢ = 0,5 u²). Cada par de triângulos (2 metades) vale 1 quadradinho inteiro!",
-      enunciado: "No Canvas do Castelo e Planta Baixa acima, uma fachada desenhada na malha possui 18 quadradinhos inteiros e 6 triângulos de meio quadradinho (nos telhados das torres). Qual é a área total dessa figura em unidades de área (u²)?",
+      enunciado: "No simulador do Castelo e Planta Baixa acima, uma fachada desenhada na malha possui 18 quadradinhos inteiros e 6 triângulos de meio quadradinho (nos telhados das torres). Qual é a área total dessa figura em unidades de área (u²)?",
       opcoes: [
         "A) 18 u²",
         "B) 21 u²",
@@ -1097,7 +1097,7 @@ window.MISSIONS_DATA.push(
       },
       {
         id: "m11_e2_q2",
-        enunciado: "2. Um barco desenhado na malha quadriculada é composto por 10 quadradinhos inteiros no casco ena vela, mais 4 metades de quadradinho nas pontas. Qual é a área total do barco?",
+        enunciado: "2. Um barco desenhado na malha quadriculada é composto por 10 quadradinhos inteiros no casco e na vela, mais 4 metades de quadradinho nas pontas. Qual é a área total do barco?",
         opcoes: ["11 quadradinhos", "12 quadradinhos", "14 quadradinhos", "18 quadradinhos"],
         correta: 1,
         dica: "4 metades formam quantos quadradinhos inteiros? (4 ÷ 2 = 2).",
@@ -1145,8 +1145,8 @@ window.MISSIONS_DATA.push(
       }
     ],
     etapaFinal: {
-      titulo: "Missão Boss: Projeto de Piscina com Jardim em m² (Quadrados e Metades)",
-      instrucao: "No Canvas de Área, alterne entre quadrados inteiros (1 m²) e meios-quadrados (0,5 m²) com texturas acessíveis para projetar a piscina e o jardim!",
+      titulo: "Missão Final: Projeto de Piscina com Jardim em m² (Quadrados e Metades)",
+      instrucao: "No simulador de Área, alterne entre quadrados inteiros (1 m²) e meios-quadrados (0,5 m²) com texturas acessíveis para projetar a piscina e o jardim!",
       metaMinima: 6
     }
   },
@@ -1170,7 +1170,7 @@ window.MISSIONS_DATA.push(
     },
     etapa1: {
       alertaEstrategia: "Para ler uma Tabela de Dupla Entrada: cruze a LINHA com a COLUNA desejada! E para achar o total geral, some os totais de todas as linhas (ou de todas as colunas).",
-      enunciado: "Na pesquisa de esportes da turma exibida no Estúdio de Gráficos em Canvas: Vôlei teve 12 votos (7 meninas e 5 meninos), Futsal teve 15 votos (6 meninas e 9 meninos) e Basquete teve 9 votos (5 meninas e 4 meninos). Qual é a diferença entre o total de votos do esporte mais votado e o menos votado, e quantos alunos votaram ao todo?",
+      enunciado: "Na pesquisa de esportes da turma exibida no Estúdio de Gráficos: Vôlei teve 12 votos (7 meninas e 5 meninos), Futsal teve 15 votos (6 meninas e 9 meninos) e Basquete teve 9 votos (5 meninas e 4 meninos). Qual é a diferença entre o total de votos do esporte mais votado e o menos votado, e quantos alunos votaram ao todo?",
       opcoes: [
         "A) Diferença de 3 votos e total de 36 alunos",
         "B) Diferença de 6 votos e total de 36 alunos",
@@ -1244,8 +1244,8 @@ window.MISSIONS_DATA.push(
       }
     ],
     etapaFinal: {
-      titulo: "Missão Boss: Pesquisa Amostral e Gerador de Gráficos (Colunas, Linhas e Setores)",
-      instrucao: "Altere os votos da pesquisa amostral da turma e alterne entre gráfico de Colunas, Linhas e Setores no Canvas com padrões acessíveis!",
+      titulo: "Missão Final: Pesquisa Amostral e Gerador de Gráficos (Colunas, Linhas e Setores)",
+      instrucao: "Altere os votos da pesquisa amostral da turma e alterne entre gráfico de Colunas, Linhas e Setores no simulador com padrões acessíveis!",
       metaMinima: 3
     }
   },
@@ -1278,7 +1278,7 @@ window.MISSIONS_DATA.push(
     },
     etapa1: {
       alertaEstrategia: "Estratégia DUA de Estimativa: primeiro compare com a metade (50% = 1/2)! Como 40% é MENOR que 50%, descarte de cara as figuras que têm a metade ou mais da metade pintada! Depois, lembre-se: 40% = 40/100 = 4/10 = 0,4 = 2/5.",
-      enunciado: "Problema da Helena (Livro p. 107): Helena precisa identificar qual das 4 figuras subdivididas no Canvas acima (com cores, hachuras e rótulos acessíveis) tem exatamente 40% de sua área total pintada: Figura A (2/4 pintados), Figura B (2/5 pintados), Figura C (5/8 pintados) ou Figura D (3/4 pintados). Qual figura Helena deve escolher?",
+      enunciado: "Problema da Helena (Livro p. 107): Helena precisa identificar qual das 4 figuras subdivididas no simulador acima (com cores, hachuras e rótulos acessíveis) tem exatamente 40% de sua área total pintada: Figura A (2/4 pintados), Figura B (2/5 pintados), Figura C (5/8 pintados) ou Figura D (3/4 pintados). Qual figura Helena deve escolher?",
       opcoes: [
         "A) Figura A (2/4 pintados = 1/2 = 50%)",
         "B) Figura B (2/5 pintados = 40/100 = 0,4 = 40%)",
@@ -1396,7 +1396,7 @@ window.MISSIONS_DATA.push(
       }
     ],
     etapaFinal: {
-      titulo: "Missão Boss: Construtor de Mosaico Fracionário e Roleta de Probabilidade",
+      titulo: "Missão Final: Construtor de Mosaico Fracionário e Roleta de Probabilidade",
       instrucao: "Divida o polígono em partes iguais, pinte setores com hachuras acessíveis e gire a roleta equiprovável para gerar o card completo (Fração Irredutível, Decimal e Porcentagem)!",
       metaMinima: 4
     }
@@ -1421,7 +1421,7 @@ window.MISSIONS_DATA.push(
     },
     etapa1: {
       alertaEstrategia: "Para somar ou subtrair valores em Reais (R$): alinhe sempre VÍRGULA EMBAIXO DE VÍRGULA (Reais com Reais, décimos/dezenas de centavos com décimos, centésimos com centésimos)!",
-      enunciado: "No Caixa Registradora MathLab (PDV) em Canvas, Bia comprou 3 cadernos de R$ 12,40 cada e 1 estojo de R$ 15,80. Ela pagou com uma nota de R$ 50,00 e uma nota de R$ 10,00 (Total pago: R$ 60,00). Qual foi o valor total da compra e quanto ela recebeu de troco?",
+      enunciado: "No Caixa Registradora MathLab (PDV), Bia comprou 3 cadernos de R$ 12,40 cada e 1 estojo de R$ 15,80. Ela pagou com uma nota de R$ 50,00 e uma nota de R$ 10,00 (Total pago: R$ 60,00). Qual foi o valor total da compra e quanto ela recebeu de troco?",
       opcoes: [
         "A) Compra de R$ 52,00 e troco de R$ 8,00",
         "B) Compra de R$ 53,00 e troco de R$ 7,00",
@@ -1500,8 +1500,8 @@ window.MISSIONS_DATA.push(
       }
     ],
     etapaFinal: {
-      titulo: "Missão Boss: PDV e Carteira Digital MathLab",
-      instrucao: "Adicione produtos à cesta no PDV em Canvas, clique nas cédulas e moedas de Real para pagar, confira o troco e simule o parcelamento sem juros!",
+      titulo: "Missão Final: PDV e Carteira Digital MathLab",
+      instrucao: "Adicione produtos à cesta no PDV, clique nas cédulas e moedas de Real para pagar, confira o troco e simule o parcelamento sem juros!",
       metaMinima: 3
     }
   },
@@ -1525,7 +1525,7 @@ window.MISSIONS_DATA.push(
     },
     etapa1: {
       alertaEstrategia: "Painel de Cálculo Mental (EF05MA06): 100% = Inteiro | 50% = 1/2 (÷ 2) | 25% = 1/4 (÷ 4, ou metade de 50%) | 75% = 3/4 (3 × 25%, ou 50% + 25%) | 10% = 1/10 (÷ 10)!",
-      enunciado: "Na Régua de Descontos em Canvas, uma mochila escolar custa R$ 160,00 (100% do valor). Se a loja oferece um cupom de 25% de desconto para pagamento à vista, de quantos reais é o desconto e qual é o preço final a pagar?",
+      enunciado: "Na Régua de Descontos, uma mochila escolar custa R$ 160,00 (100% do valor). Se a loja oferece um cupom de 25% de desconto para pagamento à vista, de quantos reais é o desconto e qual é o preço final a pagar?",
       opcoes: [
         "A) Desconto de R$ 25,00 e preço final de R$ 135,00",
         "B) Desconto de R$ 40,00 e preço final de R$ 120,00",
@@ -1614,8 +1614,8 @@ window.MISSIONS_DATA.push(
       }
     ],
     etapaFinal: {
-      titulo: "Missão Boss: Vitrine de Descontos e Régua de Proporcionalidade (10%, 25%, 50%, 75%)",
-      instrucao: "Escolha os produtos da loja virtual no Canvas e aplique os cupons de 10%, 25%, 50% e 75% para visualizar a fração cortada e o valor final!",
+      titulo: "Missão Final: Vitrine de Descontos e Régua de Proporcionalidade (10%, 25%, 50%, 75%)",
+      instrucao: "Escolha os produtos da loja virtual no simulador e aplique os cupons de 10%, 25%, 50% e 75% para visualizar a fração cortada e o valor final!",
       metaMinima: 4
     }
   },
@@ -1639,7 +1639,7 @@ window.MISSIONS_DATA.push(
     },
     etapa1: {
       alertaEstrategia: "Fórmula infalível para descobrir o passo (intervalo) de cada tracinho na reta numérica: Passo = (Valor Final − Valor Inicial) ÷ (Número de subdivisões entre eles)!",
-      enunciado: "Na Reta Numérica com Lupa Decimal em Canvas, observe o intervalo entre os números naturais consecutivos 4 e 5:- Se dividirmos ao meio (2 subdivisões), o ponto central é 4,5.- Se ativarmos a Lupa de 10 subdivisões (décimos), qual número decimal está localizado exatamente no 7º tracinho após o número 4?",
+      enunciado: "Na Reta Numérica com Lupa Decimal, observe o intervalo entre os números naturais consecutivos 4 e 5. Se dividirmos ao meio (2 subdivisões), o ponto central é 4,5. Se ativarmos a Lupa de 10 subdivisões (décimos), qual número decimal está localizado exatamente no 7º tracinho após o número 4?",
       opcoes: [
         "A) 4,07",
         "B) 4,5",
@@ -1731,8 +1731,8 @@ window.MISSIONS_DATA.push(
       }
     ],
     etapaFinal: {
-      titulo: "Missão Boss: Reta Numérica com Lupa Decimal (Zoom 2× e 10×) e Sequências",
-      instrucao: "Use os controles de Zoom (Metades, Décimos e Linha do Tempo) no Canvas para localizar pontos decimais e descobrir o passo das sequências recursivas!",
+      titulo: "Missão Final: Reta Numérica com Lupa Decimal (Zoom 2× e 10×) e Sequências",
+      instrucao: "Use os controles de Zoom (Metades, Décimos e Linha do Tempo) no simulador para localizar pontos decimais e descobrir o passo das sequências recursivas!",
       metaMinima: 4
     }
   }

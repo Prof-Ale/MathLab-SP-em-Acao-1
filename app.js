@@ -62,7 +62,7 @@
   // Web Speech API (Leitura em Voz Alta pt-BR - Diretriz DUA)
   window.speakText = function (text) {
     if (!("speechSynthesis" in window)) {
-      alert("Seu navegador não suporta leitura em voz alta (Web Speech API).");
+      console.warn("Leitura em voz alta indisponível neste navegador.");
       return;
     }
     window.speechSynthesis.cancel();
@@ -71,6 +71,8 @@
     utter.rate = 0.98;
     window.speechSynthesis.speak(utter);
   };
+
+  const escA = (t) => String(t).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 
   function profAleAvatarHTML(variant) {
     const imgSrc = variant === "clean"
@@ -162,7 +164,7 @@
           </div>
         </div>
         <div>
-          <button class="tts-btn" onclick="speakText('Missão ${m.id}: ${m.titulo}. Eixo ${m.eixo}.')">
+          <button class="tts-btn" data-tts="Missão ${m.id}: ${m.titulo}. Eixo ${m.eixo}.">
             🔊 Ouvir Título
           </button>
         </div>
@@ -171,11 +173,11 @@
 
     // 2. Navegação das 5 Abas Gamificadas
     const stages = [
-      { step: "Abertura", label: "Briefing & Roda" },
-      { step: "Etapa 1", label: "Lab. Guiado" },
-      { step: "Etapa 2", label: "Treino de Campo" },
-      { step: "Etapa 3", label: "Simulador Saeb" },
-      { step: "Etapa Final", label: "Missão Boss 🏆" }
+      { step: "Abertura", label: "Vamos começar" },
+      { step: "Etapa 1", label: "Explorar" },
+      { step: "Etapa 2", label: "Praticar" },
+      { step: "Etapa 3", label: "Desafio" },
+      { step: "Etapa Final", label: "Missão Final 🏆" }
     ];
     const tabsEl = document.getElementById("mission-tabs-nav");
     if (tabsEl) {
@@ -219,7 +221,7 @@
 
   // ABA 0: ABERTURA (Briefing com Prof. Alê Chocolate + Questões Mobilizadoras + Simulador Partilha M13)
   function renderStage0Abertura(container, m) {
-    const safeCtx = m.abertura.contexto.replace(/'/g, "\\'");
+    const safeCtx = m.abertura.contexto;
     let partilhaHTML = "";
     if (m.abertura.simuladorPartilha && m.abertura.simuladorPartilha.ativo) {
       partilhaHTML = `
@@ -243,8 +245,8 @@
           ${profAleAvatarHTML()}
           <div class="prof-ale-content">
             <div class="prof-ale-header">
-              <span class="prof-ale-name">🍫 Prof. Alê Chocolate — Briefing da Missão ${m.id}</span>
-              <button class="tts-btn" onclick="speakText('${safeCtx}')">🔊 Ouvir Briefing</button>
+              <span class="prof-ale-name">🍫 Prof. Alê Chocolate — Começo da Missão ${m.id}</span>
+              <button class="tts-btn" data-tts="${escA(safeCtx)}">🔊 Ouvir</button>
             </div>
             <p>${m.abertura.contexto}</p>
           </div>
@@ -252,24 +254,24 @@
 
         ${partilhaHTML}
 
-        <h3 style="color:var(--navy-primary);margin:1rem 0 0.75rem">💬 Roda de Conversa — Questões Mobilizadoras</h3>
-        <p style="color:var(--text-muted);margin-bottom:1rem;font-size:0.9rem">Discuta com a turma e registre as ideias do grupo para desbloquear as insígnias da Abertura:</p>
+        <h3 style="color:var(--navy-primary);margin:1rem 0 0.75rem">💬 Roda de conversa</h3>
+        <p style="color:var(--text-muted);margin-bottom:1rem;font-size:0.9rem">Converse com a turma e anote as ideias do grupo:</p>
         ${m.abertura.questoesMobilizadoras
           .map(
             (q, i) => `
           <div class="question-block">
             <div class="question-header">
-              <strong>Questão Mobilizadora ${i + 1}</strong>
-              <button class="tts-btn" onclick="speakText('${q.replace(/'/g, "\\'")}')">🔊 Ouvir</button>
+              <strong>Pergunta ${i + 1}</strong>
+              <button class="tts-btn" data-tts="${escA(q)}">🔊 Ouvir</button>
             </div>
             <p style="margin-bottom:0.65rem;font-weight:600">${q}</p>
-            <textarea rows="2" placeholder="Registre aqui sua hipótese ou síntese da roda de conversa..." style="width:100%;padding:0.6rem;border-radius:8px;border:1px solid var(--border-color);font-family:inherit"></textarea>
+            <textarea rows="2" placeholder="Escreva aqui o que o grupo pensou..." style="width:100%;padding:0.6rem;border-radius:8px;border:1px solid var(--border-color);font-family:inherit"></textarea>
           </div>`
           )
           .join("")}
 
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-top:1rem">
-          <button class="btn-action" id="btn-complete-s0">✅ Concluir Roda de Conversa (+20 XP) e Ir ao Laboratório Guiado →</button>
+          <button class="btn-action" id="btn-complete-s0">✅ Pronto! Ir para o laboratório (+20 XP) →</button>
         </div>
       </div>
     `;
@@ -308,16 +310,16 @@
       <div class="stage-card">
         <div class="strategy-alert">
           <div style="display:flex;justify-content:space-between;align-items:center;gap:0.5rem;margin-bottom:0.35rem">
-            <strong style="color:var(--navy-primary)">🧭 Alerta de Estratégia DUA — Prof. Alê Chocolate</strong>
-            <button class="tts-btn" onclick="speakText('${e1.alertaEstrategia.replace(/'/g, "\\'")}')">🔊 Ouvir Estratégia</button>
+            <strong style="color:var(--navy-primary)">🧭 Dica de estratégia do Prof. Alê</strong>
+            <button class="tts-btn" data-tts="${escA(e1.alertaEstrategia)}">🔊 Ouvir Estratégia</button>
           </div>
           <p>${e1.alertaEstrategia}</p>
         </div>
 
         <div class="canvas-lab-container">
           <div style="display:flex;justify-content:space-between;width:100%;max-width:720px;align-items:center;flex-wrap:wrap;gap:0.5rem">
-            <strong style="color:var(--navy-primary)">🔬 Simulador Interativo em Canvas — Missão ${m.id}</strong>
-            <span style="font-size:0.8rem;color:var(--text-muted)">Experimente os controles antes de responder!</span>
+            <strong style="color:var(--navy-primary)">🔬 Laboratório interativo — Missão ${m.id}</strong>
+            <span style="font-size:0.8rem;color:var(--text-muted)">Mexa nos controles antes de responder!</span>
           </div>
           <div class="canvas-wrapper">
             <canvas id="canvas-stage1" width="660" height="315"></canvas>
@@ -327,8 +329,8 @@
 
         <div class="question-block">
           <div class="question-header">
-            <strong style="color:var(--navy-primary)">Desafio Guiado da Etapa 1</strong>
-            <button class="tts-btn" onclick="speakText('${e1.enunciado.replace(/'/g, "\\'")}')">🔊 Ouvir Enunciado</button>
+            <strong style="color:var(--navy-primary)">Desafio guiado</strong>
+            <button class="tts-btn" data-tts="${escA(e1.enunciado)}">🔊 Ouvir Enunciado</button>
           </div>
           <p style="font-weight:600;margin-bottom:0.75rem">${e1.enunciado}</p>
           <div class="options-grid" id="e1-options">
@@ -347,8 +349,8 @@
 
         <div class="accordion-box">
           <button class="accordion-header" id="acc-btn-e1" ${isUnlocked ? "" : "disabled"}>
-            <span>📘 Resolvendo a questão (Passo a Passo Detalhado)</span>
-            <span id="acc-status-e1">${isUnlocked ? "🔓 Liberado (Clique para expandir)" : "🔒 Responda à questão acima para liberar"}</span>
+            <span>📘 Passo a passo da solução</span>
+            <span id="acc-status-e1">${isUnlocked ? "🔓 Liberado (Clique para expandir)" : "🔒 Responda acima para ver"}</span>
           </button>
           <div class="accordion-body ${isUnlocked ? "open" : ""}" id="acc-body-e1">
             ${e1.passoAPasso.map((p) => `<p style="margin-bottom:0.45rem">✔️ ${p}</p>`).join("")}
@@ -359,8 +361,8 @@
           ${profAleAvatarHTML("clean")}
           <div style="flex:1">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem;flex-wrap:wrap;gap:0.5rem">
-              <strong style="color:var(--orange-vibrant);font-size:1.05rem">💡 Fique ligado! (Sistematização Conceitual)</strong>
-              <button class="tts-btn" onclick="speakText('${e1.fiqueLigado.replace(/'/g, "\\'")}')">🔊 Ouvir Conceito</button>
+              <strong style="color:var(--orange-vibrant);font-size:1.05rem">💡 Fique ligado!</strong>
+              <button class="tts-btn" data-tts="${escA(e1.fiqueLigado)}">🔊 Ouvir Conceito</button>
             </div>
             <p style="font-weight:600">${e1.fiqueLigado}</p>
           </div>
@@ -390,12 +392,12 @@
         if (chosen === e1.correta) {
           btn.classList.add("correct");
           fb.className = "feedback-banner show correct";
-          fb.innerHTML = `🎉 Excelente investigação! Você acertou (+30 XP)! Confira abaixo o acordeão "Resolvendo a questão" e o boxe "Fique ligado!".`;
+          fb.innerHTML = `🎉 Muito bem! Você acertou (+30 XP). Veja abaixo o passo a passo e o Fique ligado.`;
           addXP(30, `m${m.id}_s1`);
         } else {
           btn.classList.add("wrong");
           fb.className = "feedback-banner show wrong";
-          fb.innerHTML = `🔍 Quase lá! O erro faz parte da investigação. Leia o passo a passo liberado abaixo em "Resolvendo a questão" e tente novamente!`;
+          fb.innerHTML = `🔍 Quase lá! Errar faz parte de investigar. Leia o passo a passo abaixo e tente de novo.`;
           saveProgress();
         }
       };
@@ -409,8 +411,8 @@
       <div class="stage-card">
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem">
           <div>
-            <h3 style="color:var(--navy-primary)">🏋️ Etapa 2: Treino de Campo (Aprofundamento com Andaimes)</h3>
-            <p style="font-size:0.9rem;color:var(--text-muted)">Use os botões de suporte <strong>Dica!</strong> e <strong>Fique ligado!</strong> sempre que precisar, ou abra o rascunho no canto inferior direito.</p>
+            <h3 style="color:var(--navy-primary)">🏋️ Etapa 2: Praticar</h3>
+            <p style="font-size:0.9rem;color:var(--text-muted)">Errou? Sem problema. Use <strong>Dica</strong> e <strong>Fique ligado</strong> quando precisar. O rascunho fica no canto de baixo.</p>
           </div>
         </div>
 
@@ -423,7 +425,7 @@
               <div style="display:flex;gap:0.45rem;flex-wrap:wrap">
                 <button class="btn-outline" data-support="dica" data-q="${qIdx}">💡 Dica!</button>
                 <button class="btn-outline" data-support="fique" data-q="${qIdx}">📌 Fique ligado!</button>
-                <button class="tts-btn" onclick="speakText('${q.enunciado.replace(/'/g, "\\'")}')">🔊 Ouvir</button>
+                <button class="tts-btn" data-tts="${escA(q.enunciado)}">🔊 Ouvir</button>
               </div>
             </div>
             <p style="font-weight:600;margin-bottom:0.75rem">${q.enunciado}</p>
@@ -475,16 +477,16 @@
         if (oIdx === q.correta) {
           btn.classList.add("correct");
           fb.className = "feedback-banner show correct";
-          fb.innerHTML = `✅ Correto! ${q.fiqueLigado}`;
+          fb.innerHTML = `🎉 Isso mesmo! ${q.fiqueLigado}`;
           if (!parent.dataset.done) {
             parent.dataset.done = "1";
             solvedCount++;
-            if (solvedCount >= 1) addXP(35, `m${m.id}_s2`);
+            if (solvedCount >= m.etapa2.length) addXP(35, `m${m.id}_s2`);
           }
         } else {
           btn.classList.add("wrong");
           fb.className = "feedback-banner show wrong";
-          fb.innerHTML = `🔎 Pista formativa: ${q.dica}`;
+          fb.innerHTML = `🔎 Quase! Olha a dica: ${q.dica}`;
         }
       };
     });
@@ -496,8 +498,8 @@
       <div class="stage-card">
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem">
           <div>
-            <h3 style="color:var(--navy-primary)">🎯 Etapa 3: Simulador Saeb (Resolução Autônoma)</h3>
-            <p style="font-size:0.9rem;color:var(--text-muted)">Questões no padrão oficial Saeb. As etiquetas curriculares exibem o descritor Saeb, o Nível de Proficiência (N1 a N8) e a Taxonomia de Bloom.</p>
+            <h3 style="color:var(--navy-primary)">🎯 Etapa 3: Desafio (agora é com você)</h3>
+            <p style="font-size:0.9rem;color:var(--text-muted)">Questões no estilo das provas oficiais. Leia com calma, pense e escolha.</p>
           </div>
           <button class="btn-secondary" onclick="window.openTeacherSaebModal()">👩‍🏫 Abrir Painel De Olho no Saeb</button>
         </div>
@@ -513,7 +515,7 @@
                 <span class="curr-tag nivel teacher-tag" style="display:${appState.teacherMode ? "inline-block" : "none"}">Proficiência: ${q.nivel}</span>
                 <span class="curr-tag bncc teacher-tag" style="display:${appState.teacherMode ? "inline-block" : "none"}">Bloom: ${q.bloom}</span>
               </div>
-              <button class="tts-btn" onclick="speakText('${q.enunciado.replace(/'/g, "\\'")}')">🔊 Ouvir Item</button>
+              <button class="tts-btn" data-tts="${escA(q.enunciado)}">🔊 Ouvir Item</button>
             </div>
             <p style="font-weight:600;margin-bottom:0.75rem">${q.enunciado}</p>
             <div class="options-grid">
@@ -548,10 +550,12 @@
 
         fb.className = `feedback-banner show ${isCorrect ? "correct" : "wrong"}`;
         fb.innerHTML = isCorrect
-          ? `🏆 Gabarito Oficial Confirmado (${["A", "B", "C", "D"][q.correta]})! ${q.explicacao}`
-          : `⚠️ Alternativa incorreta. Análise pedagógica do item (${q.saeb} - ${q.nivel}): ${q.explicacao}`;
+          ? `🏆 Isso aí! ${q.explicacao}`
+          : `🔎 Quase! Vamos entender juntos: ${q.explicacao}`;
 
+        if (!appState.saebHistory.some((h) => h.missionId === m.id && h.qid === q.id))
         appState.saebHistory.push({
+          qid: q.id,
           missionId: m.id,
           eixo: m.eixo,
           saeb: q.saeb,
@@ -579,7 +583,7 @@
           <div class="prof-ale-content">
             <div class="prof-ale-header">
               <span class="prof-ale-name">🏆 ${m.etapaFinal.titulo}</span>
-              <button class="tts-btn" onclick="speakText('${m.etapaFinal.instrucao.replace(/'/g, "\\'")}')">🔊 Ouvir Missão Boss</button>
+              <button class="tts-btn" data-tts="${escA(m.etapaFinal.instrucao)}">🔊 Ouvir</button>
             </div>
             <p>${m.etapaFinal.instrucao}</p>
           </div>
@@ -594,10 +598,10 @@
 
         <div class="question-block">
           <label for="boss-reflection" style="font-weight:700;display:block;margin-bottom:0.45rem">
-            📝 Diário de Bordo do Projeto Prático (Compartilhe sua descoberta ou estratégia com a turma):
+            📝 Diário de bordo: conte o que você descobriu com o simulador.
           </label>
-          <textarea id="boss-reflection" rows="3" placeholder="Explique como você configurou o simulador acima e o que descobriu nesta missão..." style="width:100%;padding:0.65rem;border-radius:8px;border:1px solid var(--border-color);font-family:inherit;margin-bottom:0.75rem"></textarea>
-          <button class="btn-action" id="btn-finish-boss">🏅 Concluir Missão ${m.id} e Resgatar Insígnia (+50 XP)</button>
+          <textarea id="boss-reflection" rows="3" placeholder="Escreva com suas palavras o que você fez e o que descobriu..." style="width:100%;padding:0.65rem;border-radius:8px;border:1px solid var(--border-color);font-family:inherit;margin-bottom:0.75rem"></textarea>
+          <button class="btn-action" id="btn-finish-boss">🏅 Concluir a Missão ${m.id} (+50 XP)</button>
           <div id="boss-fb" class="feedback-banner" role="alert" aria-live="polite"></div>
         </div>
       </div>
@@ -609,7 +613,7 @@
       addXP(50, `m${m.id}_s4`);
       const fb = document.getElementById("boss-fb");
       fb.className = "feedback-banner show correct";
-      fb.innerHTML = `🎖️ Parabéns! Você concluiu o Projeto Prático da <strong>Missão ${m.id}: ${m.titulo}</strong> e conquistou +50 XP com o Selo MathLab!`;
+      fb.innerHTML = `🎖️ Parabéns! Você concluiu a <strong>Missão ${m.id}: ${m.titulo}</strong> e conquistou +50 XP !`;
     };
   }
 
@@ -895,8 +899,13 @@
       };
     });
 
+    document.addEventListener("click", (ev) => {
+      const b = ev.target.closest && ev.target.closest("[data-tts]");
+      if (b) window.speakText(b.getAttribute("data-tts"));
+    });
     initAccessibilityBar();
     initScaffolding();
+    document.dispatchEvent(new CustomEvent("mathlab:pronto", { detail: { state: appState, renderWorkspace: renderMissionWorkspace, renderSidebar, saveProgress } }));
     updateHUD();
     renderSidebar();
     renderMissionWorkspace();
